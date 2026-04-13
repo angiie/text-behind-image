@@ -49,7 +49,7 @@ const FontFamilyPicker: React.FC<FontFamilyPickerProps> = ({
     <Popover>
       <div className='flex flex-col items-start justify-start my-8'>
         <Label>
-          Font Family {!isPaidUser && <span className="text-xs text-muted-foreground ml-2">(6 free fonts available)</span>}
+          Font Family
         </Label>
         <PopoverTrigger asChild>
           <Button
@@ -73,49 +73,22 @@ const FontFamilyPicker: React.FC<FontFamilyPickerProps> = ({
           />
           <CommandList>
             <CommandEmpty>No font family found.</CommandEmpty>
-            {!isPaidUser && (
-              <CommandGroup heading="Free Fonts">
-                {FREE_FONTS.map((font) => (
-                  <CommandItem
-                    value={font}
-                    key={font}
-                    onSelect={() => handleAttributeChange(attribute, font)}
-                    className='hover:cursor-pointer'
-                    style={{ fontFamily: font }}
-                  >
-                    {font}
-                    <CheckIcon
-                      className={cn(
-                        "ml-auto h-4 w-4",
-                        font === currentFont ? "opacity-100" : "opacity-0"
-                      )}
-                    />
-                  </CommandItem>
-                ))}
-              </CommandGroup>
-            )}
-            <CommandGroup heading={isPaidUser ? "All Fonts" : "Premium Fonts (Upgrade to Access)"}>
-              {(isPaidUser ? ALL_FONTS : ALL_FONTS.filter(f => !FREE_FONTS.includes(f))).map((font) => (
+            <CommandGroup heading="All Fonts">
+              {ALL_FONTS.map((font) => (
                 <CommandItem
                   value={font}
                   key={font}
-                  onSelect={() => isPaidUser && handleAttributeChange(attribute, font)}
-                  className={cn(
-                    'hover:cursor-pointer',
-                    !isPaidUser && 'opacity-50 hover:cursor-not-allowed'
-                  )}
+                  onSelect={() => handleAttributeChange(attribute, font)}
+                  className='hover:cursor-pointer'
                   style={{ fontFamily: font }}
                 >
                   {font}
-                  {!isPaidUser && <LockClosedIcon className="ml-auto h-4 w-4" />}
-                  {isPaidUser && (
-                    <CheckIcon
-                      className={cn(
-                        "ml-auto h-4 w-4",
-                        font === currentFont ? "opacity-100" : "opacity-0"
-                      )}
-                    />
-                  )}
+                  <CheckIcon
+                    className={cn(
+                      "ml-auto h-4 w-4",
+                      font === currentFont ? "opacity-100" : "opacity-0"
+                    )}
+                  />
                 </CommandItem>
               ))}
             </CommandGroup>

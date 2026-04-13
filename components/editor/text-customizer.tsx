@@ -76,9 +76,7 @@ const TextCustomizer: React.FC<TextCustomizerProps> = ({ textSet, handleAttribut
     ];  
 
     const handlePremiumAttributeChange = (attribute: string, value: any) => {
-        if (isPaidUser || (attribute !== 'letterSpacing' && attribute !== 'tiltX' && attribute !== 'tiltY')) {
-            handleAttributeChange(textSet.id, attribute, value);
-        }
+        handleAttributeChange(textSet.id, attribute, value);
     };
 
     return (
@@ -190,8 +188,8 @@ const TextCustomizer: React.FC<TextCustomizerProps> = ({ textSet, handleAttribut
                                 step={1}
                                 currentValue={textSet.letterSpacing}
                                 handleAttributeChange={(attribute, value) => handlePremiumAttributeChange(attribute, value)}
-                                disabled={!isPaidUser}
-                                premiumFeature={!isPaidUser}
+                                disabled={false}
+                                premiumFeature={false}
                             />
                         )}
 
@@ -228,8 +226,8 @@ const TextCustomizer: React.FC<TextCustomizerProps> = ({ textSet, handleAttribut
                                 step={1}
                                 currentValue={textSet.tiltX}
                                 handleAttributeChange={(attribute, value) => handlePremiumAttributeChange(attribute, value)}
-                                disabled={!isPaidUser}
-                                premiumFeature={!isPaidUser}
+                                disabled={false}
+                                premiumFeature={false}
                             />
                         )}
 
@@ -242,8 +240,8 @@ const TextCustomizer: React.FC<TextCustomizerProps> = ({ textSet, handleAttribut
                                 step={1}
                                 currentValue={textSet.tiltY}
                                 handleAttributeChange={(attribute, value) => handlePremiumAttributeChange(attribute, value)}
-                                disabled={!isPaidUser}
-                                premiumFeature={!isPaidUser}
+                                disabled={false}
+                                premiumFeature={false}
                             />
                         )}
                     </div>
@@ -316,8 +314,8 @@ const TextCustomizer: React.FC<TextCustomizerProps> = ({ textSet, handleAttribut
                         step={1}
                         currentValue={textSet.letterSpacing}
                         handleAttributeChange={(attribute, value) => handlePremiumAttributeChange(attribute, value)}
-                        disabled={!isPaidUser}
-                        premiumFeature={!isPaidUser}
+                        disabled={false}
+                        premiumFeature={false}
                     />
                     <SliderField
                         attribute="opacity"
@@ -345,8 +343,8 @@ const TextCustomizer: React.FC<TextCustomizerProps> = ({ textSet, handleAttribut
                         step={1}
                         currentValue={textSet.tiltX}
                         handleAttributeChange={(attribute, value) => handlePremiumAttributeChange(attribute, value)}
-                        disabled={!isPaidUser}
-                        premiumFeature={!isPaidUser}
+                        disabled={false}
+                        premiumFeature={false}
                     />
                     <SliderField
                         attribute="tiltY"
@@ -356,8 +354,8 @@ const TextCustomizer: React.FC<TextCustomizerProps> = ({ textSet, handleAttribut
                         step={1}
                         currentValue={textSet.tiltY}
                         handleAttributeChange={(attribute, value) => handlePremiumAttributeChange(attribute, value)}
-                        disabled={!isPaidUser}
-                        premiumFeature={!isPaidUser}
+                        disabled={false}
+                        premiumFeature={false}
                     />
                 </div>
 
